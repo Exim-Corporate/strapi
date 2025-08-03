@@ -19,6 +19,12 @@ export default ({ env }) => ({
   },
   tutorials: false,
   releases: false,
+  contentTypeBuilder: {
+    allowEdit: async () => {
+      // Always allow editing Content-Type Builder
+      return true;
+    },
+  },
   // vite: {
   //   cacheDir: path.join(os.tmpdir(), 'strapi-vite-cache'),
   //   server: {
