@@ -4,4 +4,10 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
+  admin: {
+    auth: {
+      secret: env('ADMIN_JWT_SECRET', 'default-jwt-secret'),
+    },
+  },
+  allowedHosts: ['strapi-production-3c8f.up.railway.app'],
 });
