@@ -6,20 +6,12 @@ import { factories } from '@strapi/strapi';
 
 export default factories.createCoreController('api::article.article', ({ strapi }) => ({
   async findOne(ctx) {
-    const { slug } = ctx.params; // Получаем слаг из параметров
-    const { query } = ctx; // Получаем query из запроса
-
-    // Ищем статью по слагу
-    const entity = await strapi.entityService.findMany('api::article.article', {
-      filters: { slug },
-      ...query, // Применяем дополнительные параметры из query
+    const { id } = ctx.params;
+    const entity = await strapi.db.query('api::article.article').findOne({
+      where: { slug: id },
     });
+    const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
-    if (!entity || entity.length === 0) {
-      return ctx.notFound('Article not found');
-    }
-
-    // Возвращаем первую найденную статью
-    return this.transformResponse(entity[0]);
+    return this.transformResponse(sanitizedEntity);
   },
 }));
