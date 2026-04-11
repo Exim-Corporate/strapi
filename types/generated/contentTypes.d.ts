@@ -426,7 +426,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
+        maxLength: 150;
       }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -536,6 +536,236 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiIndustryCategoryIndustryCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'industry_categories';
+  info: {
+    description: 'Categories / tags for industry expertise pages';
+    displayName: 'Industry Category';
+    pluralName: 'industry-categories';
+    singularName: 'industry-category';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-category.industry-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiIndustryPageIndustryPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'industry_pages';
+  info: {
+    description: 'Industry pages for routing, SEO and footer navigation';
+    displayName: 'Industry Pages';
+    pluralName: 'industry-pages';
+    singularName: 'industry-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    footerLabel: Schema.Attribute.String;
+    footerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
+    hero: Schema.Attribute.Component<'shared.industry-hero', false>;
+    industryDescription: Schema.Attribute.Component<
+      'shared.industry-description',
+      false
+    >;
+    industryStats: Schema.Attribute.Component<'shared.industry-stats', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-page.industry-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showInFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReferralCategoryReferralCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'referral_categories';
+  info: {
+    description: 'Categories / tags for referral pages';
+    displayName: 'Referral Category';
+    pluralName: 'referral-categories';
+    singularName: 'referral-category';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::referral-category.referral-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReferralPageReferralPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'referral_pages';
+  info: {
+    description: 'Referral pages for routing, SEO and hero content';
+    displayName: 'Referral Pages';
+    pluralName: 'referral-pages';
+    singularName: 'referral-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    footerLabel: Schema.Attribute.String;
+    footerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
+    hero: Schema.Attribute.Component<'shared.referral-hero', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::referral-page.referral-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    referralProgramSection: Schema.Attribute.Component<
+      'shared.referral-program-section',
+      false
+    >;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showInFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServiceCategoryServiceCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'service_categories';
+  info: {
+    description: 'Categories / tags for service pages';
+    displayName: 'Service Category';
+    pluralName: 'service-categories';
+    singularName: 'service-category';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-category.service-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicePageServicePage extends Struct.CollectionTypeSchema {
+  collectionName: 'service_pages';
+  info: {
+    description: 'Service pages for routing, SEO and footer navigation';
+    displayName: 'Service Pages';
+    pluralName: 'service-pages';
+    singularName: 'service-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    footerLabel: Schema.Attribute.String;
+    footerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
+    hero: Schema.Attribute.Component<'shared.service-hero', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-page.service-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    serviceAboutSection: Schema.Attribute.Component<
+      'shared.service-about-section',
+      false
+    >;
+    serviceBenefitsSection: Schema.Attribute.Component<
+      'shared.service-benefits-block',
+      false
+    >;
+    serviceCardsSection: Schema.Attribute.Component<
+      'shared.service-cards-section',
+      false
+    >;
+    showInFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1056,6 +1286,12 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::industry-category.industry-category': ApiIndustryCategoryIndustryCategory;
+      'api::industry-page.industry-page': ApiIndustryPageIndustryPage;
+      'api::referral-category.referral-category': ApiReferralCategoryReferralCategory;
+      'api::referral-page.referral-page': ApiReferralPageReferralPage;
+      'api::service-category.service-category': ApiServiceCategoryServiceCategory;
+      'api::service-page.service-page': ApiServicePageServicePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

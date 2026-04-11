@@ -1,0 +1,31 @@
+{
+    "collectionName": "components_shared_industry_heroes",
+    "info": {
+        "name": "IndustryHero",
+        "displayName": "Industry Hero",
+        "description": "Hero section for industry expertise pages"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::industry-category.industry-category"
+        }
+    }
+}

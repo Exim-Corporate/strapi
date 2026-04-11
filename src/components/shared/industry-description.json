@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_industry_descriptions",
+  "info": {
+    "displayName": "Industry Description",
+    "description": "Section below hero with heading and accordion content"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrowPrefix": {
+      "type": "string",
+      "default": "Expertise"
+    },
+    "eyebrowCurrent": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "accordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.accordion",
+      "required": true,
+      "min": 1
+    }
+  }
+}

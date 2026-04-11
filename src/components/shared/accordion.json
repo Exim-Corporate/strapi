@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_shared_accordions",
+    "info": {
+        "displayName": "Accordion",
+        "description": "Shared accordion item with title, description and card"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "card": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.card",
+            "required": true
+        }
+    }
+}

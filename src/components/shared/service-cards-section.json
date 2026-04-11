@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_shared_service_cards_sections",
+    "info": {
+        "displayName": "Service Cards Section",
+        "description": "Capabilities cards section for service pages"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "buttonLabel": {
+            "type": "string"
+        },
+        "cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.card",
+            "required": true
+        }
+    }
+}

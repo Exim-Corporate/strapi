@@ -1,0 +1,38 @@
+{
+    "collectionName": "components_shared_service_heroes",
+    "info": {
+        "displayName": "Service Hero",
+        "description": "Hero section for service pages"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "imagePrimary": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "imageSecondary": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::service-category.service-category"
+        }
+    }
+}

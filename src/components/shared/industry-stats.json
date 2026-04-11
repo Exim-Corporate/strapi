@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_industry_stats",
+  "info": {
+    "displayName": "Industry Stats",
+    "description": "Benefits and metrics block for industry pages"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "accordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.industry-stats-accordion",
+      "required": true,
+      "min": 1
+    }
+  }
+}

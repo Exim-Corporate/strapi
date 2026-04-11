@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_service_about_sections",
+  "info": {
+    "displayName": "Service About Section",
+    "description": "About section for service pages"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "accordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service-about-item",
+      "required": true
+    }
+  }
+}

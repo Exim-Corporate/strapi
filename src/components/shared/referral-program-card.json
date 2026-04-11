@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_shared_referral_program_cards",
+  "info": {
+    "displayName": "Referral Program Card",
+    "description": "Card content for referral program section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "points": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.referral-program-point",
+      "required": true,
+      "min": 1
+    },
+    "exampleLabel": {
+      "type": "string",
+      "default": "EXAMPLE"
+    },
+    "exampleText": {
+      "type": "text"
+    },
+    "styleVariant": {
+      "type": "enumeration",
+      "enum": [
+        "pattern",
+        "plain"
+      ],
+      "default": "plain",
+      "required": true
+    }
+  }
+}

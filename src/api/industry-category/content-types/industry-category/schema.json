@@ -1,0 +1,25 @@
+{
+    "kind": "collectionType",
+    "collectionName": "industry_categories",
+    "info": {
+        "singularName": "industry-category",
+        "pluralName": "industry-categories",
+        "displayName": "Industry Category",
+        "description": "Categories / tags for industry expertise pages"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "name",
+            "required": true
+        }
+    }
+}

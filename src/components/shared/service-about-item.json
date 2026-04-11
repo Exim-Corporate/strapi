@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_service_about_items",
+  "info": {
+    "displayName": "Service About Item",
+    "description": "Technology card item with icon source mode"
+  },
+  "options": {},
+  "attributes": {
+    "iconType": {
+      "type": "enumeration",
+      "enum": [
+        "withSvg",
+        "static"
+      ],
+      "default": "withSvg",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "technologyName": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

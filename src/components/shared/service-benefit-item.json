@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_service_benefit_items",
+  "info": {
+    "displayName": "Service Benefit Item",
+    "description": "Single benefit item with style variant"
+  },
+  "options": {},
+  "attributes": {
+    "itemType": {
+      "type": "enumeration",
+      "enum": [
+        "metric",
+        "statement"
+      ],
+      "default": "statement",
+      "required": true
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
