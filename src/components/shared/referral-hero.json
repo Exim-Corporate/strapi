@@ -1,33 +1,33 @@
 {
-  "collectionName": "components_shared_referral_heroes",
-  "info": {
-    "displayName": "Referral Hero",
-    "description": "Hero section for referrals page"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_referral_heroes",
+    "info": {
+        "displayName": "Referral Hero",
+        "description": "Hero section for referrals page"
     },
-    "description": {
-      "type": "text"
-    },
-    "buttonLabel": {
-      "type": "string"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::referral-category.referral-category"
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "buttonLabel": {
+            "type": "string"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::referral-category.referral-category"
+        }
     }
-  }
 }

@@ -1,14 +1,14 @@
 {
-  "collectionName": "components_shared_referral_program_points",
-  "info": {
-    "displayName": "Referral Program Point",
-    "description": "Single bullet point for referral program card"
-  },
-  "options": {},
-  "attributes": {
-    "text": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_referral_program_points",
+    "info": {
+        "displayName": "Referral Program Point",
+        "description": "Single bullet point for referral program card"
+    },
+    "options": {},
+    "attributes": {
+        "text": {
+            "type": "string",
+            "required": true
+        }
     }
-  }
 }
