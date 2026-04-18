@@ -1,24 +1,24 @@
 {
-  "kind": "singleType",
-  "collectionName": "main_calendlies",
-  "info": {
-    "singularName": "main-calendly",
-    "pluralName": "main-calendlies",
-    "displayName": "Main Calendly",
-    "description": "Calendly booking section content for the main site"
-  },
-  "options": {
-    "draftAndPublish": false
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "main_calendlies",
+    "info": {
+        "singularName": "main-calendly",
+        "pluralName": "main-calendlies",
+        "displayName": "Main Calendly",
+        "description": "Calendly booking section content for the main site"
     },
-    "link": {
-      "type": "string",
-      "required": true
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "link": {
+            "type": "string",
+            "required": true
+        }
     }
-  }
 }
