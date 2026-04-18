@@ -542,6 +542,45 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeaderNavigationHeaderNavigation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'header_navigation';
+  info: {
+    description: 'Navigation structure for the main site header menu';
+    displayName: 'Header Navigation';
+    pluralName: 'header-navigations';
+    singularName: 'header-navigation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    aiDevelopmentDropdown: Schema.Attribute.Component<
+      'navigation.header-services-dropdown',
+      false
+    >;
+    blogLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Blog'>;
+    blogPath: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/blog'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    expertiseDropdown: Schema.Attribute.Component<
+      'navigation.header-industries-dropdown',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header-navigation.header-navigation'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiIndustryCategoryIndustryCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'industry_categories';
@@ -1286,6 +1325,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::header-navigation.header-navigation': ApiHeaderNavigationHeaderNavigation;
       'api::industry-category.industry-category': ApiIndustryCategoryIndustryCategory;
       'api::industry-page.industry-page': ApiIndustryPageIndustryPage;
       'api::referral-category.referral-category': ApiReferralCategoryReferralCategory;

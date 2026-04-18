@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_navigation_header_industries_dropdowns",
+  "info": {
+    "displayName": "Header Industries Dropdown",
+    "description": "Industries dropdown configuration for the header"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "primaryGroupTitle": {
+      "type": "string"
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::industry-page.industry-page"
+    },
+    "extraGroupTitle": {
+      "type": "string"
+    },
+    "extraLinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::industry-page.industry-page"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

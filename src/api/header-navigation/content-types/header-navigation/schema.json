@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "header_navigation",
+  "info": {
+    "singularName": "header-navigation",
+    "pluralName": "header-navigations",
+    "displayName": "Header Navigation",
+    "description": "Navigation structure for the main site header menu"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "aiDevelopmentDropdown": {
+      "type": "component",
+      "component": "navigation.header-services-dropdown",
+      "repeatable": false
+    },
+    "expertiseDropdown": {
+      "type": "component",
+      "component": "navigation.header-industries-dropdown",
+      "repeatable": false
+    },
+    "blogLabel": {
+      "type": "string",
+      "default": "Blog"
+    },
+    "blogPath": {
+      "type": "string",
+      "default": "/blog"
+    }
+  }
+}

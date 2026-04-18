@@ -1,5 +1,51 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface NavigationHeaderIndustriesDropdown
+  extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_header_industries_dropdowns';
+  info: {
+    description: 'Industries dropdown configuration for the header';
+    displayName: 'Header Industries Dropdown';
+  };
+  attributes: {
+    extraGroupTitle: Schema.Attribute.String;
+    extraLinks: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-page.industry-page'
+    >;
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-page.industry-page'
+    >;
+    primaryGroupTitle: Schema.Attribute.String;
+  };
+}
+
+export interface NavigationHeaderServicesDropdown
+  extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_header_services_dropdowns';
+  info: {
+    description: 'Services dropdown configuration for the header';
+    displayName: 'Header Services Dropdown';
+  };
+  attributes: {
+    extraGroupTitle: Schema.Attribute.String;
+    extraLinks: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-page.service-page'
+    >;
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-page.service-page'
+    >;
+    primaryGroupTitle: Schema.Attribute.String;
+  };
+}
+
 export interface SharedAccordion extends Struct.ComponentSchema {
   collectionName: 'components_shared_accordions';
   info: {
@@ -80,29 +126,6 @@ export interface SharedIndustryStats extends Struct.ComponentSchema {
     displayName: 'Industry Stats';
   };
   attributes: {
-    accordions: Schema.Attribute.Component<
-      'shared.industry-stats-accordion',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface SharedIndustryStatsAccordion extends Struct.ComponentSchema {
-  collectionName: 'components_shared_industry_stats_accordions';
-  info: {
-    description: 'Industry stats item with title and description';
-    displayName: 'Accordion';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -339,12 +362,13 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'navigation.header-industries-dropdown': NavigationHeaderIndustriesDropdown;
+      'navigation.header-services-dropdown': NavigationHeaderServicesDropdown;
       'shared.accordion': SharedAccordion;
       'shared.card': SharedCard;
       'shared.industry-description': SharedIndustryDescription;
       'shared.industry-hero': SharedIndustryHero;
       'shared.industry-stats': SharedIndustryStats;
-      'shared.industry-stats-accordion': SharedIndustryStatsAccordion;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.referral-hero': SharedReferralHero;
