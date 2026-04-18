@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_shared_industry_stats_accordions",
+    "info": {
+        "displayName": "Accordion",
+        "description": "Industry stats item with title and description"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}

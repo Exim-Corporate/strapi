@@ -9,6 +9,13 @@
     "title": {
       "type": "string",
       "required": true
+    },
+    "accordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.industry-stats-accordion",
+      "required": true,
+      "min": 1
     }
   }
 }

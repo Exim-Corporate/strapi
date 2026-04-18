@@ -126,6 +126,29 @@ export interface SharedIndustryStats extends Struct.ComponentSchema {
     displayName: 'Industry Stats';
   };
   attributes: {
+    accordions: Schema.Attribute.Component<
+      'shared.industry-stats-accordion',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedIndustryStatsAccordion extends Struct.ComponentSchema {
+  collectionName: 'components_shared_industry_stats_accordions';
+  info: {
+    description: 'Industry stats item with title and description';
+    displayName: 'Accordion';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -369,6 +392,7 @@ declare module '@strapi/strapi' {
       'shared.industry-description': SharedIndustryDescription;
       'shared.industry-hero': SharedIndustryHero;
       'shared.industry-stats': SharedIndustryStats;
+      'shared.industry-stats-accordion': SharedIndustryStatsAccordion;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.referral-hero': SharedReferralHero;
