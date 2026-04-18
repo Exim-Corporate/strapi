@@ -522,6 +522,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    Calendly: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -649,6 +650,36 @@ export interface ApiIndustryPageIndustryPage
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMainCalendlyMainCalendly extends Struct.SingleTypeSchema {
+  collectionName: 'main_calendlies';
+  info: {
+    description: 'Calendly booking section content for the main site';
+    displayName: 'Main Calendly';
+    pluralName: 'main-calendlies';
+    singularName: 'main-calendly';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::main-calendly.main-calendly'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1328,6 +1359,7 @@ declare module '@strapi/strapi' {
       'api::header-navigation.header-navigation': ApiHeaderNavigationHeaderNavigation;
       'api::industry-category.industry-category': ApiIndustryCategoryIndustryCategory;
       'api::industry-page.industry-page': ApiIndustryPageIndustryPage;
+      'api::main-calendly.main-calendly': ApiMainCalendlyMainCalendly;
       'api::referral-category.referral-category': ApiReferralCategoryReferralCategory;
       'api::referral-page.referral-page': ApiReferralPageReferralPage;
       'api::service-category.service-category': ApiServiceCategoryServiceCategory;
