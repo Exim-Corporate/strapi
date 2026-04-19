@@ -1,0 +1,34 @@
+{
+    "collectionName": "components_shared_cta_sections",
+    "info": {
+        "displayName": "CTA Section",
+        "description": "Reusable CTA section for service and industry pages"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "buttonText": {
+            "type": "string"
+        },
+        "buttonUrl": {
+            "type": "string"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "imageAlt": {
+            "type": "string"
+        }
+    }
+}

@@ -64,6 +64,12 @@
       "component": "shared.service-benefits-block",
       "repeatable": false,
       "required": false
+    },
+    "ctaSection": {
+      "type": "component",
+      "component": "shared.cta-section",
+      "repeatable": false,
+      "required": false
     }
   }
 }

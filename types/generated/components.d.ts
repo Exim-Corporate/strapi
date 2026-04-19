@@ -78,6 +78,22 @@ export interface SharedCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCtaSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_cta_sections';
+  info: {
+    description: 'Reusable CTA section for service and industry pages';
+    displayName: 'CTA Section';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedIndustryDescription extends Struct.ComponentSchema {
   collectionName: 'components_shared_industry_descriptions';
   info: {
@@ -389,6 +405,7 @@ declare module '@strapi/strapi' {
       'navigation.header-services-dropdown': NavigationHeaderServicesDropdown;
       'shared.accordion': SharedAccordion;
       'shared.card': SharedCard;
+      'shared.cta-section': SharedCtaSection;
       'shared.industry-description': SharedIndustryDescription;
       'shared.industry-hero': SharedIndustryHero;
       'shared.industry-stats': SharedIndustryStats;

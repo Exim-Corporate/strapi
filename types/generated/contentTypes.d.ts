@@ -629,6 +629,7 @@ export interface ApiIndustryPageIndustryPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ctaSection: Schema.Attribute.Component<'shared.cta-section', false>;
     description: Schema.Attribute.Text;
     footerLabel: Schema.Attribute.String;
     footerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
@@ -734,6 +735,7 @@ export interface ApiReferralPageReferralPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ctaSection: Schema.Attribute.Component<'shared.cta-section', false>;
     description: Schema.Attribute.Text;
     footerLabel: Schema.Attribute.String;
     footerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
@@ -807,6 +809,7 @@ export interface ApiServicePageServicePage extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ctaSection: Schema.Attribute.Component<'shared.cta-section', false>;
     description: Schema.Attribute.Text;
     footerLabel: Schema.Attribute.String;
     footerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;

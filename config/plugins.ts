@@ -1,5 +1,6 @@
 interface PluginEnv {
   (key: string, defaultValue?: string): string;
+  bool: (key: string, defaultValue?: boolean) => boolean;
 }
 
 interface ImageFormat {
@@ -36,6 +37,9 @@ interface PluginsConfig {
   readonly upload: {
     readonly config: UploadConfig;
   };
+  readonly mcp: {
+    readonly enabled: boolean;
+  };
 }
 
 export default ({ env }: { env: PluginEnv }): PluginsConfig => ({
@@ -63,5 +67,8 @@ export default ({ env }: { env: PluginEnv }): PluginsConfig => ({
       sizeOptimization: true,
       responsiveDimensions: true,
     },
+  },
+  mcp: {
+    enabled: !env.bool('DISABLE_STRAPI_MCP', false),
   },
 });
