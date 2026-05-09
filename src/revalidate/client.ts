@@ -5,16 +5,25 @@ export const sendRevalidateRequest = async (
   config: RevalidateConfig,
   payload: RevalidatePayload,
 ): Promise<void> => {
+  const headers: Record<string, string> = {
+    'content-type': 'application/json',
+    'x-revalidate-secret': config.secret,
+  };
+
+  if (config.protectionBypassSecret) {
+    headers['x-vercel-protection-bypass'] = config.protectionBypassSecret;
+  }
+
   console.log(`[revalidate-client] Sending webhook to: ${config.endpointUrl}`);
   console.log(`[revalidate-client] Payload: ${JSON.stringify(payload, null, 2)}`);
+  console.log(
+    `[revalidate-client] Deployment protection bypass header: ${config.protectionBypassSecret ? 'enabled' : 'disabled'}`,
+  );
   
   try {
     const response = await fetch(config.endpointUrl, {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-revalidate-secret': config.secret,
-      },
+      headers,
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(config.timeoutMs),
     });
