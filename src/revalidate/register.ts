@@ -31,11 +31,6 @@ const handleLifecycleEvent = async (event: LifecycleEventLike, strapi: Core.Stra
 
   const payload = buildRevalidatePayload(event, config.secret);
 
-  if (!payload) {
-    console.warn(`[revalidate] Could not build payload for model: ${modelUid}`);
-    return;
-  }
-
   try {
     console.log(`[revalidate] Triggering revalidation for: ${modelUid} (${event.action})`);
     await sendRevalidateRequest(config, payload);

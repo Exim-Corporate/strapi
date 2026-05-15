@@ -14,14 +14,20 @@ export const sendRevalidateRequest = async (
     headers['x-vercel-protection-bypass'] = config.protectionBypassSecret;
   }
 
-  console.log(`[revalidate-client] Sending webhook to: ${config.endpointUrl}`);
+  const endpointUrl = new URL(config.endpointUrl);
+
+  if (config.protectionBypassSecret) {
+    endpointUrl.searchParams.set('x-vercel-protection-bypass', config.protectionBypassSecret);
+  }
+
+  console.log(`[revalidate-client] Sending webhook to: ${endpointUrl.href}`);
   console.log(`[revalidate-client] Payload: ${JSON.stringify(payload, null, 2)}`);
   console.log(
     `[revalidate-client] Deployment protection bypass header: ${config.protectionBypassSecret ? 'enabled' : 'disabled'}`,
   );
   
   try {
-    const response = await fetch(config.endpointUrl, {
+    const response = await fetch(endpointUrl.href, {
       method: 'POST',
       headers,
       body: JSON.stringify(payload),
@@ -40,7 +46,7 @@ export const sendRevalidateRequest = async (
     throw new Error(error);
   } catch (error) {
     if (error instanceof Error && error.name === 'AbortError') {
-      console.error(`[revalidate-client] ✗ Webhook timeout (${config.timeoutMs}ms): ${config.endpointUrl}`);
+      console.error(`[revalidate-client] ✗ Webhook timeout (${config.timeoutMs}ms): ${endpointUrl.href}`);
       throw new Error(`Frontend revalidate timeout after ${config.timeoutMs}ms`);
     }
     console.error(`[revalidate-client] ✗ Webhook error: ${error instanceof Error ? error.message : String(error)}`);

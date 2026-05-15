@@ -1,10 +1,6 @@
 export interface RevalidatePayload {
-  model: string;
-  event: string;
-  entry: {
-    slug?: string;
-    locale?: string;
-  };
+  model?: string;
+  event?: string;
   secret: string;
 }
 
@@ -38,22 +34,12 @@ export const getModelUid = (event: LifecycleEventLike): string | undefined => {
   return readString(event.uid);
 };
 
-export const buildRevalidatePayload = (event: LifecycleEventLike, secret: string): RevalidatePayload | null => {
+export const buildRevalidatePayload = (event: LifecycleEventLike, secret: string): RevalidatePayload => {
   const model = getModelUid(event);
-
-  if (!model) {
-    return null;
-  }
-
-  const entity = event.result || event.params?.data || {};
 
   return {
     model,
-    event: readString(event.action) || 'unknown',
-    entry: {
-      slug: readString(entity.slug),
-      locale: readString(entity.locale),
-    },
+    event: readString(event.action),
     secret,
   };
 };
