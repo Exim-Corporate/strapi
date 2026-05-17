@@ -1,25 +1,34 @@
 {
-    "kind": "collectionType",
-    "collectionName": "service_categories",
-    "info": {
-        "singularName": "service-category",
-        "pluralName": "service-categories",
-        "displayName": "Service Category",
-        "description": "Categories / tags for service pages"
-    },
-    "options": {
-        "draftAndPublish": false
-    },
-    "pluginOptions": {},
-    "attributes": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "slug": {
-            "type": "uid",
-            "targetField": "name",
-            "required": true
-        }
+  "kind": "collectionType",
+  "collectionName": "service_categories",
+  "info": {
+    "singularName": "service-category",
+    "pluralName": "service-categories",
+    "displayName": "Service Category",
+    "description": "Categories / tags for service pages"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
     }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    }
+  }
 }
