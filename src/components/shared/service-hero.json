@@ -21,14 +21,6 @@
                 "images"
             ]
         },
-        "imageSecondary": {
-            "type": "media",
-            "multiple": false,
-            "required": false,
-            "allowedTypes": [
-                "images"
-            ]
-        },
         "categories": {
             "type": "relation",
             "relation": "oneToMany",

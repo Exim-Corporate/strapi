@@ -381,7 +381,6 @@ export interface SharedServiceHero extends Struct.ComponentSchema {
     >;
     description: Schema.Attribute.Text;
     imagePrimary: Schema.Attribute.Media<'images'>;
-    imageSecondary: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
