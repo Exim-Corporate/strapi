@@ -825,13 +825,6 @@ export interface ApiMainCalendlyMainCalendly extends Struct.SingleTypeSchema {
       'api::main-calendly.main-calendly'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
