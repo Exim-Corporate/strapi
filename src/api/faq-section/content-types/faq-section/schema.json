@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_sections",
+  "info": {
+    "singularName": "faq-section",
+    "pluralName": "faq-sections",
+    "displayName": "FAQ Section",
+    "description": "FAQ section content for the website"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "accordions": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.industry-stats-accordion",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}
