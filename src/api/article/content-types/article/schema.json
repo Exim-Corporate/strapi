@@ -30,8 +30,7 @@
         "i18n": {
           "localized": true
         }
-      },
-      "maxLength": 150
+      }
     },
     "slug": {
       "type": "uid",
