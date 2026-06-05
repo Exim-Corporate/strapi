@@ -1,31 +1,31 @@
 {
-  "kind": "singleType",
-  "collectionName": "blog_pages",
-  "info": {
-    "singularName": "blog-page",
-    "pluralName": "blog-pages",
-    "displayName": "Blog Page",
-    "description": "Static blog listing page content blocks managed from the CMS"
-  },
-  "options": {
-    "draftAndPublish": false
-  },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
-  "attributes": {
-    "ctaSection": {
-      "type": "component",
-      "pluginOptions": {
+    "kind": "singleType",
+    "collectionName": "blog_pages",
+    "info": {
+        "singularName": "blog-page",
+        "pluralName": "blog-pages",
+        "displayName": "Blog Page",
+        "description": "Static blog listing page content blocks managed from the CMS"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {
         "i18n": {
-          "localized": true
+            "localized": true
         }
-      },
-      "component": "shared.cta-section",
-      "repeatable": false,
-      "required": false
+    },
+    "attributes": {
+        "ctaSection": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.cta-section",
+            "repeatable": false,
+            "required": false
+        }
     }
-  }
 }
