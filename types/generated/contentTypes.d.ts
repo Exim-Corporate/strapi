@@ -808,6 +808,7 @@ export interface ApiIndustryPageIndustryPage
         };
       }> &
       Schema.Attribute.DefaultTo<999>;
+    headerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
     hero: Schema.Attribute.Component<'shared.industry-hero', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1122,6 +1123,7 @@ export interface ApiServicePageServicePage extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<999>;
+    headerOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<999>;
     hero: Schema.Attribute.Component<'shared.service-hero', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

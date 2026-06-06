@@ -55,6 +55,10 @@
       },
       "default": 999
     },
+    "headerOrder": {
+      "type": "integer",
+      "default": 999
+    },
     "showInFooter": {
       "type": "boolean",
       "pluginOptions": {
