@@ -1,21 +1,21 @@
 {
-  "collectionName": "components_shared_why_choose_us_sections",
-  "info": {
-    "displayName": "Why Choose Us Section",
-    "description": "Homepage Why Choose Us section"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_why_choose_us_sections",
+    "info": {
+        "displayName": "Why Choose Us Section",
+        "description": "Homepage Why Choose Us section"
     },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.why-choose-us-item",
-      "required": true,
-      "min": 1
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "items": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.why-choose-us-item",
+            "required": true,
+            "min": 1
+        }
     }
-  }
 }
