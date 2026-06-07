@@ -381,6 +381,7 @@ export interface SharedServiceBenefitItem extends Struct.ComponentSchema {
     itemType: Schema.Attribute.Enumeration<['metric', 'statement']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'statement'>;
+    subheader: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -426,6 +427,19 @@ export interface SharedServiceHero extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     imagePrimary: Schema.Attribute.Media<'images'>;
     imageSecondary: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedServicesProvideSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_services_provide_sections';
+  info: {
+    description: 'Homepage services provide section metadata';
+    displayName: 'Services Provide Section';
+  };
+  attributes: {
+    buttonLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -483,6 +497,9 @@ export interface SharedTestimonialCard extends Struct.ComponentSchema {
     comment: Schema.Attribute.Text & Schema.Attribute.Required;
     company: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<999>;
     projectType: Schema.Attribute.String & Schema.Attribute.Required;
     rating: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
@@ -517,6 +534,37 @@ export interface SharedTestimonialsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedWhyChooseUsItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_why_choose_us_items';
+  info: {
+    description: 'Single item in the homepage Why Choose Us section';
+    displayName: 'Why Choose Us Item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedWhyChooseUsSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_why_choose_us_sections';
+  info: {
+    description: 'Homepage Why Choose Us section';
+    displayName: 'Why Choose Us Section';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.why-choose-us-item', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -546,11 +594,14 @@ declare module '@strapi/strapi' {
       'shared.service-benefits-block': SharedServiceBenefitsBlock;
       'shared.service-cards-section': SharedServiceCardsSection;
       'shared.service-hero': SharedServiceHero;
+      'shared.services-provide-section': SharedServicesProvideSection;
       'shared.slider': SharedSlider;
       'shared.stand-apart-stat': SharedStandApartStat;
       'shared.stand-apart-stats-section': SharedStandApartStatsSection;
       'shared.testimonial-card': SharedTestimonialCard;
       'shared.testimonials-section': SharedTestimonialsSection;
+      'shared.why-choose-us-item': SharedWhyChooseUsItem;
+      'shared.why-choose-us-section': SharedWhyChooseUsSection;
     }
   }
 }

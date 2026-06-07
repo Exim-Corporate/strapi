@@ -70,6 +70,28 @@
             "component": "shared.process-section",
             "repeatable": false,
             "required": false
+        },
+        "whyChooseUsSection": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.why-choose-us-section",
+            "repeatable": false,
+            "required": false
+        },
+        "servicesProvideSection": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.services-provide-section",
+            "repeatable": false,
+            "required": false
         }
     }
 }

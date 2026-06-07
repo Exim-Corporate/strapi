@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_services_provide_sections",
+  "info": {
+    "displayName": "Services Provide Section",
+    "description": "Homepage services provide section metadata"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "buttonLabel": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

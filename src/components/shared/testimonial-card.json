@@ -18,6 +18,11 @@
             "type": "string",
             "required": true
         },
+        "order": {
+            "type": "integer",
+            "required": true,
+            "default": 999
+        },
         "rating": {
             "type": "decimal",
             "required": true,
