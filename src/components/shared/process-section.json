@@ -1,24 +1,24 @@
 {
-  "collectionName": "components_shared_process_sections",
-  "info": {
-    "displayName": "Process Section",
-    "description": "Homepage process block"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_process_sections",
+    "info": {
+        "displayName": "Process Section",
+        "description": "Homepage process block"
     },
-    "subtitle": {
-      "type": "text"
-    },
-    "steps": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.process-step",
-      "required": true,
-      "min": 1
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        },
+        "steps": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.process-step",
+            "required": true,
+            "min": 1
+        }
     }
-  }
 }

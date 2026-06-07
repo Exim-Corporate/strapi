@@ -1,21 +1,21 @@
 {
-  "collectionName": "components_shared_stand_apart_stats_sections",
-  "info": {
-    "displayName": "Stand Apart Stats Section",
-    "description": "Homepage metrics block"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_stand_apart_stats_sections",
+    "info": {
+        "displayName": "Stand Apart Stats Section",
+        "description": "Homepage metrics block"
     },
-    "stats": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.stand-apart-stat",
-      "required": true,
-      "min": 1
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "stats": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.stand-apart-stat",
+            "required": true,
+            "min": 1
+        }
     }
-  }
 }

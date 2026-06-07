@@ -1,18 +1,18 @@
 {
-  "collectionName": "components_shared_industry_expertise_sections",
-  "info": {
-    "displayName": "Industry Expertise Section",
-    "description": "Homepage industry expertise block metadata"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_industry_expertise_sections",
+    "info": {
+        "displayName": "Industry Expertise Section",
+        "description": "Homepage industry expertise block metadata"
     },
-    "buttonLabel": {
-      "type": "string",
-      "required": true
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "buttonLabel": {
+            "type": "string",
+            "required": true
+        }
     }
-  }
 }

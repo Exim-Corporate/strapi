@@ -1,18 +1,18 @@
 {
-  "collectionName": "components_shared_stand_apart_stats",
-  "info": {
-    "displayName": "Stand Apart Stat",
-    "description": "Single metric item for the home page stand apart section"
-  },
-  "options": {},
-  "attributes": {
-    "value": {
-      "type": "string",
-      "required": true
+    "collectionName": "components_shared_stand_apart_stats",
+    "info": {
+        "displayName": "Stand Apart Stat",
+        "description": "Single metric item for the home page stand apart section"
     },
-    "label": {
-      "type": "string",
-      "required": true
+    "options": {},
+    "attributes": {
+        "value": {
+            "type": "string",
+            "required": true
+        },
+        "label": {
+            "type": "string",
+            "required": true
+        }
     }
-  }
 }
