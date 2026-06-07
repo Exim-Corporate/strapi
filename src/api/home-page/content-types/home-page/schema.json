@@ -26,6 +26,50 @@
             "component": "shared.cta-section",
             "repeatable": false,
             "required": false
+        },
+        "standApartStats": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.stand-apart-stats-section",
+            "repeatable": false,
+            "required": false
+        },
+        "industryExpertiseSection": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.industry-expertise-section",
+            "repeatable": false,
+            "required": false
+        },
+        "testimonialsSection": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.testimonials-section",
+            "repeatable": false,
+            "required": false
+        },
+        "processSection": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.process-section",
+            "repeatable": false,
+            "required": false
         }
     }
 }

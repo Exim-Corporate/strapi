@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_testimonials_sections",
+  "info": {
+    "displayName": "Testimonials Section",
+    "description": "Homepage testimonials block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.testimonial-card",
+      "required": true,
+      "min": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_testimonial_cards",
+  "info": {
+    "displayName": "Testimonial Card",
+    "description": "Reusable testimonial entry for the homepage"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "decimal",
+      "required": true,
+      "min": 3,
+      "max": 5
+    },
+    "comment": {
+      "type": "text",
+      "required": true
+    },
+    "projectType": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

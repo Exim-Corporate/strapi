@@ -117,6 +117,18 @@ export interface SharedIndustryDescription extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedIndustryExpertiseSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_industry_expertise_sections';
+  info: {
+    description: 'Homepage industry expertise block metadata';
+    displayName: 'Industry Expertise Section';
+  };
+  attributes: {
+    buttonLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedIndustryHero extends Struct.ComponentSchema {
   collectionName: 'components_shared_industry_heroes';
   info: {
@@ -177,6 +189,38 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedProcessSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_process_sections';
+  info: {
+    description: 'Homepage process block';
+    displayName: 'Process Section';
+  };
+  attributes: {
+    steps: Schema.Attribute.Component<'shared.process-step', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedProcessStep extends Struct.ComponentSchema {
+  collectionName: 'components_shared_process_steps';
+  info: {
+    description: 'Single step in the homepage process section';
+    displayName: 'Process Step';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -398,6 +442,81 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedStandApartStat extends Struct.ComponentSchema {
+  collectionName: 'components_shared_stand_apart_stats';
+  info: {
+    description: 'Single metric item for the home page stand apart section';
+    displayName: 'Stand Apart Stat';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedStandApartStatsSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_stand_apart_stats_sections';
+  info: {
+    description: 'Homepage metrics block';
+    displayName: 'Stand Apart Stats Section';
+  };
+  attributes: {
+    stats: Schema.Attribute.Component<'shared.stand-apart-stat', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedTestimonialCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_testimonial_cards';
+  info: {
+    description: 'Reusable testimonial entry for the homepage';
+    displayName: 'Testimonial Card';
+  };
+  attributes: {
+    comment: Schema.Attribute.Text & Schema.Attribute.Required;
+    company: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    projectType: Schema.Attribute.String & Schema.Attribute.Required;
+    rating: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 3;
+        },
+        number
+      >;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedTestimonialsSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_testimonials_sections';
+  info: {
+    description: 'Homepage testimonials block';
+    displayName: 'Testimonials Section';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'shared.testimonial-card', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -407,10 +526,13 @@ declare module '@strapi/strapi' {
       'shared.card': SharedCard;
       'shared.cta-section': SharedCtaSection;
       'shared.industry-description': SharedIndustryDescription;
+      'shared.industry-expertise-section': SharedIndustryExpertiseSection;
       'shared.industry-hero': SharedIndustryHero;
       'shared.industry-stats': SharedIndustryStats;
       'shared.industry-stats-accordion': SharedIndustryStatsAccordion;
       'shared.media': SharedMedia;
+      'shared.process-section': SharedProcessSection;
+      'shared.process-step': SharedProcessStep;
       'shared.quote': SharedQuote;
       'shared.referral-hero': SharedReferralHero;
       'shared.referral-program-card': SharedReferralProgramCard;
@@ -425,6 +547,10 @@ declare module '@strapi/strapi' {
       'shared.service-cards-section': SharedServiceCardsSection;
       'shared.service-hero': SharedServiceHero;
       'shared.slider': SharedSlider;
+      'shared.stand-apart-stat': SharedStandApartStat;
+      'shared.stand-apart-stats-section': SharedStandApartStatsSection;
+      'shared.testimonial-card': SharedTestimonialCard;
+      'shared.testimonials-section': SharedTestimonialsSection;
     }
   }
 }
